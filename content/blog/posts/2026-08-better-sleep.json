@@ -6,7 +6,7 @@
   "publishedAt": "2026-08-06",
   "updatedAt": "2026-08-14",
   "category": "睡眠",
-  "image": "/marugameseiko/assets/images/blog/better-sleep.webp",
+  "image": "/marugameseiko/assets/より良い睡眠.png",
   "imageAlt": "朝の自然光がやさしく差し込む清潔で落ち着いた寝室",
   "introduction": "睡眠時間には個人差があり、長さだけで良し悪しを決めることはできません。朝の目覚めや日中の眠気にも目を向け、毎日のリズムと寝室環境を見直してみましょう。",
   "sections": {
@@ -29,6 +29,6 @@
     "2026-08-yokohama-walking",
     "2026-08-balanced-meals"
   ],
-  "imageStatus": "awaiting-file",
-  "imageFilename": "better-sleep.webp"
+  "imageStatus": "ready",
+  "imageFilename": "より良い睡眠.png"
 }

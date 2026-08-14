@@ -27,7 +27,7 @@ document.querySelectorAll("[data-posts]").forEach((root) => {
   const posts = window.BLOG_POSTS || data.posts;
   root.innerHTML = posts.map((post) => `
     <article class="post-item" data-category="${post.category}">
-      <a class="post-image-link blog-photo-frame" href="${post.href}" aria-label="${post.title}を読む"><img class="post-image" src="${post.image}" alt="${post.imageAlt}" loading="lazy" width="1200" height="675" data-blog-photo><span class="blog-image-unassigned" role="status"><strong>アイキャッチ写真 未設定</strong><span>${post.image.split("/").pop()} に実写写真を配置してください</span></span></a>
+      <a class="post-image-link blog-photo-frame" href="${post.href}" aria-label="${post.title}を読む"><img class="post-image" src="${post.image}" alt="${post.imageAlt}" loading="lazy" width="1200" height="675" data-blog-photo>${post.imageStatus === "awaiting-file" ? `<span class="blog-image-unassigned" role="status"><strong>アイキャッチ写真 未設定</strong><span>${post.image.split("/").pop()} に実写写真を配置してください</span></span>` : ""}</a>
       <div><p class="meta"><span>${post.category}</span><time${post.dateISO ? ` datetime="${post.dateISO}"` : ""}>${post.date}</time></p><h3><a href="${post.href}">${post.title}</a></h3><p>${post.summary}</p><a class="read-more" href="${post.href}" aria-label="${post.title}の続きを読む">続きを読む <span aria-hidden="true">→</span></a></div>
     </article>`).join("");
   if (!posts.length) root.innerHTML = '<p class="empty-posts">現在公開中の記事はありません。</p>';
