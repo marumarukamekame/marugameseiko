@@ -6,8 +6,8 @@
   "publishedAt": "2026-08-10",
   "updatedAt": "2026-08-14",
   "category": "栄養・食生活",
-  "image": null,
-  "imageAlt": null,
+  "image": "/marugameseiko/assets/images/blog/balanced-meal.webp",
+  "imageAlt": "野菜、主食、たんぱく質をバランスよく盛り付けた日常的な家庭料理",
   "introduction": "健康的な食事を毎回完璧に用意するのは難しいものです。一食だけで判断せず、数日単位で主食・主菜・副菜の組み合わせを整える考え方から始めましょう。",
   "sections": {
     "theme": "食事はエネルギーや栄養素をとるだけでなく、生活のリズムをつくる大切な時間です。特定の食品だけに頼らず、さまざまな食品を組み合わせることが基本になります。",
@@ -34,6 +34,6 @@
     "2026-08-yokohama-walking",
     "2026-08-better-sleep"
   ],
-  "imageStatus": "unassigned",
+  "imageStatus": "awaiting-file",
   "imageFilename": "balanced-meal.webp"
 }
