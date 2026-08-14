@@ -41,7 +41,7 @@ for (const source of generated.sources) {
   } catch { /* Unreachable or malformed sources are omitted from the draft. */ }
 }
 const slug = `${today.slice(0, 7)}-${generated.slug}`.slice(0, 80);
-const imageFilename = `${slug}.webp`.slice(0, 85);
+const imageFilename = `${slug}.png`.slice(0, 85);
 const draft = { slug, status: "draft", title: generated.title, description: generated.description, publishedAt: null, updatedAt: today, category: selectedCategory, image: `/marugameseiko/assets/images/blog/${imageFilename}`, imageAlt: generated.imageAlt, imageStatus: "awaiting-file", imageFilename, imagePrompt: generated.imagePrompt, introduction: generated.introduction, sections: generated.sections, sources: verifiedSources, relatedActivities: [], relatedPosts: [] };
 const destination = path.join(root, "content/blog/posts", `${draft.slug}.json`);
 await mkdir(path.dirname(destination), { recursive: true });

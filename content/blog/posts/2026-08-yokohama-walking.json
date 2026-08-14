@@ -6,7 +6,7 @@
   "publishedAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "category": "運動",
-  "image": "/marugameseiko/assets/横浜ウォーキング.png",
+  "image": "/marugameseiko/assets/yokohama-walking.png",
   "imageAlt": "横浜らしい海沿いの街並みを自然なペースで歩く40代から50代の女性",
   "introduction": "特別な道具がなくても始めやすいウォーキング。坂道も多い横浜では、距離や速さを競わず、いつもの移動に少しずつ歩く時間を加えることが継続の第一歩です。",
   "sections": {
@@ -36,5 +36,5 @@
     "2026-08-better-sleep"
   ],
   "imageStatus": "ready",
-  "imageFilename": "横浜ウォーキング.png"
+  "imageFilename": "yokohama-walking.png"
 }
