@@ -19,13 +19,13 @@
 
 画像生成機能は現在の下書きスクリプトには接続していません。存在しない写真を生成済みとして扱わないため、新規下書きは次の状態で保存します。
 
-- `image: null`
-- `imageAlt: null`
-- `imageStatus: "unassigned"`
+- `image`: `/marugameseiko/assets/images/blog/<imageFilename>`（GitHub Pagesのサブディレクトリ対応済みの配置先）
+- `imageAlt`: 選定する写真内容の代替テキスト
+- `imageStatus: "awaiting-file"`
 - `imageFilename`: 保存予定のファイル名
 - `imagePrompt`: 写真の選定・撮影・将来の画像生成連携に使う編集メモ
 
-未設定の記事には、一覧と詳細の両方で「アイキャッチ写真 未設定」と明示されます。既存記事もSVGからこの移行状態へ変更しています。適切な写真を `assets/images/blog/<imageFilename>` に保存したら、`image`、具体的な `imageAlt` を設定し、`imageStatus` を `ready` に変更してください。ファイルがない状態や、実写でない画像のまま承認・公開してはいけません。
+未設定の記事には、一覧と詳細の両方で「アイキャッチ写真 未設定」と明示されます。指定済みの `assets/images/blog/<imageFilename>` に適切な写真を保存すると、一覧・詳細の両方が同じパスからその写真を読み込みます。確認後に `imageStatus` を `ready` に変更してください。ファイルがない状態や、実写でない画像のまま新しい記事を承認・公開してはいけません。
 
 ## 下書きから公開まで
 
@@ -36,7 +36,7 @@
 5. 承認後にだけ `status` を `published` に変更し、`publishedAt` と `updatedAt` を `YYYY-MM-DD` で設定します。
 6. `npm run blog:build` を実行し、生成されたHTMLと一覧データを同じPull Requestに含めます。公開前に一覧と詳細の写真が同じであることを目視確認します。
 
-`npm run blog:validate` は、`ready` の画像がローカルのラスター形式で、代替テキストもあることを検証します。`unassigned` は移行中・下書きの状態を正直に示すためのもので、公開承認の条件を満たしません。
+`npm run blog:validate` は、すべての記事にサブディレクトリ対応のローカル画像パスと代替テキストがあり、`ready` の画像ファイルが実在することを検証します。`awaiting-file` は写真待ちの状態を正直に示すためのもので、新しい記事の公開承認条件を満たしません。
 
 ## 自動下書き
 
