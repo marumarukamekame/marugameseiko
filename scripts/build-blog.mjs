@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile, mkdir, rm } from "node:fs/promises";
+import { access, readFile, readdir, writeFile, mkdir, rm } from "node:fs/promises";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -12,7 +12,13 @@ const forbidden = ["必ず治る", "絶対に改善する", "これだけで病�
 for (const post of posts) {
   if (!/^[a-z0-9-]+$/.test(post.slug) || !["draft", "published"].includes(post.status)) throw new Error(`Invalid slug/status: ${post.slug}`);
   if (!categoryNames.has(post.category)) throw new Error(`Unknown category: ${post.category}`);
-  if (!post.image?.startsWith("/marugameseiko/assets/images/blog/") || !post.imageAlt) throw new Error(`Missing local image/imageAlt: ${post.slug}`);
+  if (!["unassigned", "ready"].includes(post.imageStatus)) throw new Error(`Invalid imageStatus: ${post.slug}`);
+  if (!post.imageFilename || !/^[a-z0-9-]+\.(?:jpe?g|png|webp|avif)$/i.test(post.imageFilename)) throw new Error(`Invalid imageFilename: ${post.slug}`);
+  if (post.imageStatus === "ready") {
+    if (post.image !== `/marugameseiko/assets/images/blog/${post.imageFilename}` || !post.imageAlt) throw new Error(`A local raster photo and imageAlt are required: ${post.slug}`);
+    await access(path.join(root, "assets/images/blog", post.imageFilename));
+  }
+  if (post.imageStatus === "unassigned" && (post.image || post.imageAlt)) throw new Error(`Unassigned image must be empty: ${post.slug}`);
   if (forbidden.some((phrase) => JSON.stringify(post).includes(phrase))) throw new Error(`Forbidden claim in ${post.slug}`);
   if (post.status === "published") {
     if (!post.publishedAt || !post.updatedAt) throw new Error(`Published dates required: ${post.slug}`);
@@ -22,8 +28,8 @@ for (const post of posts) {
 }
 
 const published = posts.filter(({ status }) => status === "published").sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
-const publicPosts = published.map(({ slug, category, publishedAt, title, description, image, imageAlt }) => ({
-  category, date: publishedAt.replaceAll("-", "."), dateISO: publishedAt, title, summary: description, image, imageAlt,
+const publicPosts = published.map(({ slug, category, publishedAt, title, description, image, imageAlt, imageStatus }) => ({
+  category, date: publishedAt.replaceAll("-", "."), dateISO: publishedAt, title, summary: description, image, imageAlt, imageStatus,
   href: `/marugameseiko/blog/${slug}.html`
 }));
 await writeFile(path.join(root, "assets/js/blog-posts.js"), `// scripts/build-blog.mjs により生成。直接編集しないでください。\nwindow.BLOG_CATEGORIES = ${JSON.stringify(categories, null, 2)};\nwindow.BLOG_POSTS = ${JSON.stringify(publicPosts, null, 2)};\n`);
@@ -36,10 +42,10 @@ const linkCards = (items, empty) => items?.length ? `<div class="related-grid">$
 
 for (const post of published) {
   const canonical = `${base}/blog/${post.slug}.html`;
-  const schema = { "@context": "https://schema.org", "@type": "BlogPosting", headline: post.title, description: post.description, image: `${base}${post.image.replace("/marugameseiko", "")}`, datePublished: post.publishedAt, dateModified: post.updatedAt, mainEntityOfPage: canonical, publisher: { "@type": "Organization", name: "いざ横浜", url: `${base}/` } };
+  const schema = { "@context": "https://schema.org", "@type": "BlogPosting", headline: post.title, description: post.description, ...(post.image ? { image: `${base}${post.image.replace("/marugameseiko", "")}` } : {}), datePublished: post.publishedAt, dateModified: post.updatedAt, mainEntityOfPage: canonical, publisher: { "@type": "Organization", name: "いざ横浜", url: `${base}/` } };
   const sources = post.sources?.length ? `<ul class="source-list">${post.sources.map((source) => `<li><a href="${esc(source.url)}" rel="noopener noreferrer">${esc(source.title)}</a><span>（最終確認：${esc(source.checkedAt || post.updatedAt)}）</span></li>`).join("")}</ul>` : `<p class="muted">この記事はブログの運営方針のお知らせであり、個別の健康上の主張は含みません。</p>`;
   const related = (post.relatedPosts || []).map((slug) => published.find((item) => item.slug === slug)).filter(Boolean).map((item) => ({ title: item.title, href: `/marugameseiko/blog/${item.slug}.html` }));
-  const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(post.title)} | いざ横浜</title><meta name="description" content="${esc(post.description)}"><link rel="canonical" href="${canonical}"><meta property="og:title" content="${esc(post.title)} | いざ横浜"><meta property="og:description" content="${esc(post.description)}"><meta property="og:type" content="article"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${base}${post.image.replace("/marugameseiko", "")}"><meta property="og:image:alt" content="${esc(post.imageAlt)}"><link rel="stylesheet" href="/marugameseiko/assets/css/style.css"><script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script></head><body>${header(post.title)}<main id="main"><article class="blog-article"><div class="container blog-article-head"><nav class="breadcrumbs" aria-label="パンくず"><a href="/marugameseiko/">ホーム</a> / <a href="/marugameseiko/blog/">健康ブログ</a> / ${esc(post.title)}</nav><img class="blog-hero-image" src="${esc(post.image)}" alt="${esc(post.imageAlt)}" width="1200" height="675"><p class="blog-category">${esc(post.category)}</p><h1>${esc(post.title)}</h1><p class="article-dates">公開日 <time datetime="${post.publishedAt}">${post.publishedAt.replaceAll("-", ".")}</time><span>更新日 <time datetime="${post.updatedAt}">${post.updatedAt.replaceAll("-", ".")}</time></span></p></div><div class="prose article-body"><p class="article-intro">${esc(post.introduction)}</p><h2>健康上のテーマ・課題</h2><p>${esc(post.sections.theme)}</p><h2>なぜ起こるのか／背景</h2><p>${esc(post.sections.background)}</p><h2>日常生活で意識できるポイント</h2><p>${esc(post.sections.dailyPoints)}</p><h2>今日からできる具体的な行動</h2><p>${esc(post.sections.actions)}</p><aside class="article-caution"><h2>注意点</h2><p>${esc(post.sections.cautions)}</p></aside><h2>まとめ</h2><p>${esc(post.sections.summary)}</p><section><h2>参考情報・出典</h2>${sources}</section><section><h2>関連する「いざ地域活動」</h2>${linkCards(post.relatedActivities, "関連する活動は準備中です。")}</section><section><h2>関連記事</h2>${linkCards(related, "関連記事は順次追加します。")}</section></div></article></main>${footer}</body></html>`;
+  const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(post.title)} | いざ横浜</title><meta name="description" content="${esc(post.description)}"><link rel="canonical" href="${canonical}"><meta property="og:title" content="${esc(post.title)} | いざ横浜"><meta property="og:description" content="${esc(post.description)}"><meta property="og:type" content="article"><meta property="og:url" content="${canonical}">${post.image ? `<meta property="og:image" content="${base}${post.image.replace("/marugameseiko", "")}"><meta property="og:image:alt" content="${esc(post.imageAlt)}">` : ""}<link rel="stylesheet" href="/marugameseiko/assets/css/style.css"><script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script></head><body>${header(post.title)}<main id="main"><article class="blog-article"><div class="container blog-article-head"><nav class="breadcrumbs" aria-label="パンくず"><a href="/marugameseiko/">ホーム</a> / <a href="/marugameseiko/blog/">健康ブログ</a> / ${esc(post.title)}</nav>${post.image ? `<img class="blog-hero-image" src="${esc(post.image)}" alt="${esc(post.imageAlt)}" width="1200" height="675">` : `<div class="blog-image-unassigned blog-hero-image" role="img" aria-label="アイキャッチ写真は未設定です"><strong>アイキャッチ写真 未設定</strong><span>記事内容に合う実写写真を確認・設定後に表示します</span></div>`}<p class="blog-category">${esc(post.category)}</p><h1>${esc(post.title)}</h1><p class="article-dates">公開日 <time datetime="${post.publishedAt}">${post.publishedAt.replaceAll("-", ".")}</time><span>更新日 <time datetime="${post.updatedAt}">${post.updatedAt.replaceAll("-", ".")}</time></span></p></div><div class="prose article-body"><p class="article-intro">${esc(post.introduction)}</p><h2>健康上のテーマ・課題</h2><p>${esc(post.sections.theme)}</p><h2>なぜ起こるのか／背景</h2><p>${esc(post.sections.background)}</p><h2>日常生活で意識できるポイント</h2><p>${esc(post.sections.dailyPoints)}</p><h2>今日からできる具体的な行動</h2><p>${esc(post.sections.actions)}</p><aside class="article-caution"><h2>注意点</h2><p>${esc(post.sections.cautions)}</p></aside><h2>まとめ</h2><p>${esc(post.sections.summary)}</p><section><h2>参考情報・出典</h2>${sources}</section><section><h2>関連する「いざ地域活動」</h2>${linkCards(post.relatedActivities, "関連する活動は準備中です。")}</section><section><h2>関連記事</h2>${linkCards(related, "関連記事は順次追加します。")}</section></div></article></main>${footer}</body></html>`;
   await writeFile(path.join(root, `blog/${post.slug}.html`), html);
 }
 

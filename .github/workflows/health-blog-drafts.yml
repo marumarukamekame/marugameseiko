@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       category:
-        description: カテゴリー名（空欄の場合は地域の健康）
+        description: カテゴリー名（空欄の場合は直近と重複しない候補からランダム選択）
         required: false
         type: string
       topic:
@@ -27,6 +27,7 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5-mini' }}
+      BLOG_CATEGORY: ${{ inputs.category }}
       BLOG_TOPIC: ${{ inputs.topic }}
     steps:
       - uses: actions/checkout@v4
@@ -35,16 +36,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: 曜日別カテゴリーを決定
-        env:
-          MANUAL_CATEGORY: ${{ inputs.category }}
-          EVENT_SCHEDULE: ${{ github.event.schedule }}
-        run: |
-          if [ -n "$MANUAL_CATEGORY" ]; then CATEGORY="$MANUAL_CATEGORY"
-          elif [ "$EVENT_SCHEDULE" = "0 0 * * 1" ]; then CATEGORY="栄養・食生活"
-          elif [ "$EVENT_SCHEDULE" = "0 0 * * 3" ]; then CATEGORY="運動"
-          else CATEGORY="地域の健康"; fi
-          echo "BLOG_CATEGORY=$CATEGORY" >> "$GITHUB_ENV"
       - name: 下書きを生成・検証
         run: |
           node scripts/generate-blog-draft.mjs
@@ -60,4 +51,4 @@ jobs:
           git add content/blog/posts
           git commit -m "健康ブログの下書きを追加"
           git push origin "$BRANCH"
-          gh pr create --title "健康ブログ下書き：${BLOG_CATEGORY}" --body "AIが作成した **非公開（draft）** の下書きです。本文・医療表現・出典・画像を管理者が確認し、問題がなければ status、公開日を更新してビルドしてください。このPRをマージしただけでは記事は公開されません。"
+          gh pr create --title "健康ブログ下書き" --body "AIが作成した **非公開（draft）** の下書きです。本文・医療表現・出典を確認し、指定ファイル名で記事に合う実写写真を用意してください。写真と代替テキストの設定後に内容確認・承認を行い、問題がなければ status、公開日を更新してビルドしてください。このPRをマージしただけでは記事は公開されません。"

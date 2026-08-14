@@ -6,8 +6,8 @@
   "publishedAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "category": "運動",
-  "image": "/marugameseiko/assets/images/blog/yokohama-walking.svg",
-  "imageAlt": "横浜の海辺と街並みを背景にウォーキングを楽しむ人のイラスト",
+  "image": null,
+  "imageAlt": null,
   "introduction": "特別な道具がなくても始めやすいウォーキング。坂道も多い横浜では、距離や速さを競わず、いつもの移動に少しずつ歩く時間を加えることが継続の第一歩です。",
   "sections": {
     "theme": "座って過ごす時間が長くなりがちな日にも、通勤、買い物、散策などの移動を身体活動の機会に変えられます。大切なのは、現在の活動量や体調に合わせて無理なく始めることです。",
@@ -18,10 +18,23 @@
     "summary": "歩く習慣は、生活の中に小さく組み込み、体調を確かめながら続けることが基本です。今日できる短い一歩から始めてみましょう。"
   },
   "sources": [
-    { "title": "健康づくりのための身体活動・運動ガイド2023（厚生労働省）", "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/undou/index.html", "checkedAt": "2026-08-14" }
+    {
+      "title": "健康づくりのための身体活動・運動ガイド2023（厚生労働省）",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/undou/index.html",
+      "checkedAt": "2026-08-14"
+    }
   ],
   "relatedActivities": [
-    { "title": "いざウォーク", "href": "/marugameseiko/activities/activity-1.html", "description": "地域で歩くきっかけをつくる活動です。" }
+    {
+      "title": "いざウォーク",
+      "href": "/marugameseiko/activities/activity-1.html",
+      "description": "地域で歩くきっかけをつくる活動です。"
+    }
   ],
-  "relatedPosts": ["2026-08-balanced-meals", "2026-08-better-sleep"]
+  "relatedPosts": [
+    "2026-08-balanced-meals",
+    "2026-08-better-sleep"
+  ],
+  "imageStatus": "unassigned",
+  "imageFilename": "yokohama-walking.webp"
 }
