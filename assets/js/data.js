@@ -16,8 +16,5 @@ window.SITE_DATA = {
     ...activity,
     number: String(i + 1).padStart(2, "0"),
     href: `/marugameseiko/activities/activity-${i + 1}.html`
-  })),
-  posts: [
-    { category: "地域の健康", date: "2026.08.01", dateISO: "2026-08-01", title: "健康ブログを開設しました", summary: "横浜の健康と、地域で続く活動についてお伝えしていきます。", image: "/marugameseiko/assets/images/blog/community-health.svg", imageAlt: "横浜の街並みと緑、人のつながりを表したイラスト", href: "/marugameseiko/blog/2026-08-health-blog-start.html" }
-  ]
+  }))
 };
