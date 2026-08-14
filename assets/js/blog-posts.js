@@ -21,47 +21,55 @@ window.BLOG_CATEGORIES = [
     "name": "睡眠"
   },
   {
-    "slug": "workplace-health",
-    "name": "働く人の健康"
+    "slug": "daily-pain",
+    "name": "日常的な身体の悩み"
   },
   {
     "slug": "senior-health",
     "name": "高齢者の健康"
   },
   {
-    "slug": "frailty",
-    "name": "フレイル予防"
-  },
-  {
     "slug": "mental-health",
     "name": "メンタルヘルス"
-  },
-  {
-    "slug": "seasonal-health",
-    "name": "季節の健康"
-  },
-  {
-    "slug": "lifestyle",
-    "name": "生活習慣"
   },
   {
     "slug": "community-health",
     "name": "地域の健康"
   },
   {
-    "slug": "yokohama-health",
-    "name": "横浜の健康情報"
+    "slug": "prevention-self-care",
+    "name": "予防・セルフケア"
   }
 ];
 window.BLOG_POSTS = [
   {
-    "category": "地域の健康",
-    "date": "2026.08.01",
-    "dateISO": "2026-08-01",
-    "title": "健康ブログを開設しました",
-    "summary": "横浜の暮らしに寄り添う健康情報を、確認と根拠を大切にしながらお届けします。",
-    "image": "/marugameseiko/assets/images/blog/community-health.svg",
-    "imageAlt": "横浜の街並みと緑、人のつながりを表したイラスト",
-    "href": "/marugameseiko/blog/2026-08-health-blog-start.html"
+    "category": "運動",
+    "date": "2026.08.14",
+    "dateISO": "2026-08-14",
+    "title": "横浜のまちで始める、無理のないウォーキング習慣",
+    "summary": "通勤や買い物、公園散策を活用して、体調に合わせた歩く習慣を続けるためのポイントを紹介します。",
+    "image": "/marugameseiko/assets/images/blog/yokohama-walking.svg",
+    "imageAlt": "横浜の海辺と街並みを背景にウォーキングを楽しむ人のイラスト",
+    "href": "/marugameseiko/blog/2026-08-yokohama-walking.html"
+  },
+  {
+    "category": "栄養・食生活",
+    "date": "2026.08.10",
+    "dateISO": "2026-08-10",
+    "title": "忙しい日も整えやすい、毎日の食事の組み立て方",
+    "summary": "主食・主菜・副菜を手がかりに、無理なく食事のバランスを見直す実践的なヒントを紹介します。",
+    "image": "/marugameseiko/assets/images/blog/balanced-meal.svg",
+    "imageAlt": "野菜、ごはん、魚、汁物を組み合わせた食卓のイラスト",
+    "href": "/marugameseiko/blog/2026-08-balanced-meals.html"
+  },
+  {
+    "category": "睡眠",
+    "date": "2026.08.06",
+    "dateISO": "2026-08-06",
+    "title": "朝の光から整える、心地よい睡眠リズム",
+    "summary": "朝の光、日中の過ごし方、就寝前の環境を見直し、自分に合う睡眠リズムを整えるヒントを紹介します。",
+    "image": "/marugameseiko/assets/images/blog/better-sleep.svg",
+    "imageAlt": "朝日が差し込む落ち着いた寝室と観葉植物のイラスト",
+    "href": "/marugameseiko/blog/2026-08-better-sleep.html"
   }
 ];
