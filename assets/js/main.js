@@ -1,11 +1,20 @@
 const data = window.SITE_DATA || { activities: [], posts: [] };
 
 document.querySelectorAll("[data-activities]").forEach((root) => {
-  root.innerHTML = data.activities.map((item) => `
+  const isFeatureList = root.classList.contains("activity-feature-list");
+  root.innerHTML = data.activities.map((item) => isFeatureList ? `
+    <article class="activity-feature">
+      <div class="activity-feature-image"><img src="${item.image}" alt="${item.imageAlt}" loading="lazy" width="1600" height="1067"></div>
+      <div class="activity-feature-copy">
+        <p class="activity-number">${item.number}</p>
+        <h3>${item.title}</h3><p>${item.summary}</p>
+        <a class="text-link" href="${item.href}" aria-label="${item.title}を詳しく見る">詳しく見る <span aria-hidden="true">→</span></a>
+      </div>
+    </article>` : `
     <article class="activity-item">
-      <p class="activity-number">ACTIVITY ${item.number}</p>
+      <p class="activity-number">${item.number}</p>
       <h3>${item.title}</h3><p>${item.summary}</p>
-      <a class="text-link" href="${item.href}">${item.title}の詳細を見る <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="${item.href}">詳しく見る <span aria-hidden="true">→</span></a>
     </article>`).join("");
 });
 
@@ -32,4 +41,3 @@ document.querySelectorAll("[data-filter]").forEach((button) => button.addEventLi
     post.hidden = button.dataset.filter !== "all" && post.dataset.category !== button.dataset.filter;
   });
 }));
-
