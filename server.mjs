@@ -48,7 +48,7 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`\n横浜地域健康プラットフォームをプレビューしています。`);
+  console.log(`\nいざ横浜をプレビューしています。`);
   console.log(`  Local:   http://localhost:${port}/`);
   console.log(`  Network: http://${host}:${port}/`);
   console.log("\n終了するには Ctrl+C を押してください。\n");
