@@ -3,7 +3,7 @@ window.SITE_DATA = {
   // 画像はサイト内の既存ファイルを使用し、公開時の画像切れを防いでいます。
   activities: [
     { title: "いざ検診", subtitle: "定期的な地域総合スクリーニング", summary: "身近な場所で健康を見つめ直すきっかけをつくり、地域の皆さまと健やかな暮らしを考える活動です。", image: "/marugameseiko/assets/digital-health-scale.png", imageAlt: "明るい空間で62.4キログラムを表示する白いデジタル体重計" },
-    { title: "いざ講座", summary: "健康について知り、話し合える学びの場を通じて、日々の暮らしに生かせる気づきを届けます。", image: "/marugameseiko/assets/yokohama-city.png", imageAlt: "緑と建物が広がる横浜の街並み" },
+    { title: "いざ講座", summary: "健康について知り、話し合える学びの場を通じて、日々の暮らしに生かせる気づきを届けます。", image: "/marugameseiko/assets/images/kogi.jpg", imageAlt: "緑と建物が広がる横浜の街並み" },
     { title: "いざ健康診療", summary: "地域で安心して健康と向き合えるつながりを大切にし、暮らしに寄り添う支援を目指します。", image: "/marugameseiko/assets/images/ヨコハマ・ローズガーデン.png", imageAlt: "地域の憩いの場となる横浜の庭園" },
     { title: "いざ健康グリーンベルト", summary: "街の緑と人のつながりに目を向け、心身ともに健やかに過ごせる地域の環境を考えます。", image: "/marugameseiko/assets/yokohama-city.png", imageAlt: "緑に囲まれた横浜の地域風景" },
     { title: "いざ健康ライン", summary: "必要な情報へつながりやすい環境を整え、地域の中で健康を学び続けられる機会を育てます。", image: "/marugameseiko/assets/images/ヨコハマ・ローズガーデン.png", imageAlt: "人が集う横浜のローズガーデン" },
