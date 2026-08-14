@@ -1,0 +1,15 @@
+[
+  { "slug": "nutrition", "name": "栄養・食生活" },
+  { "slug": "exercise", "name": "運動" },
+  { "slug": "stretch", "name": "ストレッチ" },
+  { "slug": "posture", "name": "姿勢・身体の使い方" },
+  { "slug": "sleep", "name": "睡眠" },
+  { "slug": "workplace-health", "name": "働く人の健康" },
+  { "slug": "senior-health", "name": "高齢者の健康" },
+  { "slug": "frailty", "name": "フレイル予防" },
+  { "slug": "mental-health", "name": "メンタルヘルス" },
+  { "slug": "seasonal-health", "name": "季節の健康" },
+  { "slug": "lifestyle", "name": "生活習慣" },
+  { "slug": "community-health", "name": "地域の健康" },
+  { "slug": "yokohama-health", "name": "横浜の健康情報" }
+]

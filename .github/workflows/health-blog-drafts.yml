@@ -1,0 +1,63 @@
+name: 健康ブログ下書き作成
+
+on:
+  schedule:
+    # UTC。曜日・時刻はこの3行を編集して変更できます。
+    - cron: "0 0 * * 1"
+    - cron: "0 0 * * 3"
+    - cron: "0 0 * * 5"
+  workflow_dispatch:
+    inputs:
+      category:
+        description: カテゴリー名（空欄の場合は地域の健康）
+        required: false
+        type: string
+      topic:
+        description: 記事テーマ（任意）
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-draft:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5-mini' }}
+      BLOG_TOPIC: ${{ inputs.topic }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 曜日別カテゴリーを決定
+        env:
+          MANUAL_CATEGORY: ${{ inputs.category }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          if [ -n "$MANUAL_CATEGORY" ]; then CATEGORY="$MANUAL_CATEGORY"
+          elif [ "$EVENT_SCHEDULE" = "0 0 * * 1" ]; then CATEGORY="栄養・食生活"
+          elif [ "$EVENT_SCHEDULE" = "0 0 * * 3" ]; then CATEGORY="運動"
+          else CATEGORY="地域の健康"; fi
+          echo "BLOG_CATEGORY=$CATEGORY" >> "$GITHUB_ENV"
+      - name: 下書きを生成・検証
+        run: |
+          node scripts/generate-blog-draft.mjs
+          npm run blog:validate
+      - name: 管理者確認用Pull Requestを作成
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="health-blog-draft/$(date -u +%Y%m%d-%H%M%S)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$BRANCH"
+          git add content/blog/posts
+          git commit -m "健康ブログの下書きを追加"
+          git push origin "$BRANCH"
+          gh pr create --title "健康ブログ下書き：${BLOG_CATEGORY}" --body "AIが作成した **非公開（draft）** の下書きです。本文・医療表現・出典・画像を管理者が確認し、問題がなければ status、公開日を更新してビルドしてください。このPRをマージしただけでは記事は公開されません。"

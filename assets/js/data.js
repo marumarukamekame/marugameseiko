@@ -18,8 +18,6 @@ window.SITE_DATA = {
     href: `/marugameseiko/activities/activity-${i + 1}.html`
   })),
   posts: [
-    { category: "地域の健康", date: "2026.08.01", title: "健康ブログを開設しました", summary: "横浜の健康と、地域で続く活動についてお伝えしていきます。", href: "/marugameseiko/blog/sample.html" },
-    { category: "お知らせ", date: "2026.07.20", title: "ウェブサイト準備のお知らせ", summary: "活動を分かりやすくお届けするため、ウェブサイトを準備しています。", href: "/marugameseiko/blog/sample.html" },
-    { category: "活動報告", date: "2026.07.10", title: "活動報告は順次掲載します", summary: "写真と記録を通して、活動の様子を誠実に公開していきます。", href: "/marugameseiko/blog/sample.html" }
+    { category: "地域の健康", date: "2026.08.01", dateISO: "2026-08-01", title: "健康ブログを開設しました", summary: "横浜の健康と、地域で続く活動についてお伝えしていきます。", image: "/marugameseiko/assets/images/blog/community-health.svg", imageAlt: "横浜の街並みと緑、人のつながりを表したイラスト", href: "/marugameseiko/blog/2026-08-health-blog-start.html" }
   ]
 };
