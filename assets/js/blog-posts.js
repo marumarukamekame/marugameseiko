@@ -48,8 +48,9 @@ window.BLOG_POSTS = [
     "dateISO": "2026-08-14",
     "title": "横浜のまちで始める、無理のないウォーキング習慣",
     "summary": "通勤や買い物、公園散策を活用して、体調に合わせた歩く習慣を続けるためのポイントを紹介します。",
-    "image": "/marugameseiko/assets/images/blog/yokohama-walking.svg",
-    "imageAlt": "横浜の海辺と街並みを背景にウォーキングを楽しむ人のイラスト",
+    "image": null,
+    "imageAlt": null,
+    "imageStatus": "unassigned",
     "href": "/marugameseiko/blog/2026-08-yokohama-walking.html"
   },
   {
@@ -58,8 +59,9 @@ window.BLOG_POSTS = [
     "dateISO": "2026-08-10",
     "title": "忙しい日も整えやすい、毎日の食事の組み立て方",
     "summary": "主食・主菜・副菜を手がかりに、無理なく食事のバランスを見直す実践的なヒントを紹介します。",
-    "image": "/marugameseiko/assets/images/blog/balanced-meal.svg",
-    "imageAlt": "野菜、ごはん、魚、汁物を組み合わせた食卓のイラスト",
+    "image": null,
+    "imageAlt": null,
+    "imageStatus": "unassigned",
     "href": "/marugameseiko/blog/2026-08-balanced-meals.html"
   },
   {
@@ -68,8 +70,9 @@ window.BLOG_POSTS = [
     "dateISO": "2026-08-06",
     "title": "朝の光から整える、心地よい睡眠リズム",
     "summary": "朝の光、日中の過ごし方、就寝前の環境を見直し、自分に合う睡眠リズムを整えるヒントを紹介します。",
-    "image": "/marugameseiko/assets/images/blog/better-sleep.svg",
-    "imageAlt": "朝日が差し込む落ち着いた寝室と観葉植物のイラスト",
+    "image": null,
+    "imageAlt": null,
+    "imageStatus": "unassigned",
     "href": "/marugameseiko/blog/2026-08-better-sleep.html"
   }
 ];

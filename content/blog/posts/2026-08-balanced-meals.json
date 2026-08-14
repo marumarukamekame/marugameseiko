@@ -6,8 +6,8 @@
   "publishedAt": "2026-08-10",
   "updatedAt": "2026-08-14",
   "category": "栄養・食生活",
-  "image": "/marugameseiko/assets/images/blog/balanced-meal.svg",
-  "imageAlt": "野菜、ごはん、魚、汁物を組み合わせた食卓のイラスト",
+  "image": null,
+  "imageAlt": null,
   "introduction": "健康的な食事を毎回完璧に用意するのは難しいものです。一食だけで判断せず、数日単位で主食・主菜・副菜の組み合わせを整える考え方から始めましょう。",
   "sections": {
     "theme": "食事はエネルギーや栄養素をとるだけでなく、生活のリズムをつくる大切な時間です。特定の食品だけに頼らず、さまざまな食品を組み合わせることが基本になります。",
@@ -18,9 +18,22 @@
     "summary": "食事のバランスは、完璧さよりも組み合わせを意識することから。できる範囲で一品を足す、一食を整えるといった小さな工夫を続けましょう。"
   },
   "sources": [
-    { "title": "食事バランスガイド（農林水産省）", "url": "https://www.maff.go.jp/j/balance_guide/", "checkedAt": "2026-08-14" },
-    { "title": "栄養・食生活（厚生労働省）", "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/eiyou/index.html", "checkedAt": "2026-08-14" }
+    {
+      "title": "食事バランスガイド（農林水産省）",
+      "url": "https://www.maff.go.jp/j/balance_guide/",
+      "checkedAt": "2026-08-14"
+    },
+    {
+      "title": "栄養・食生活（厚生労働省）",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/eiyou/index.html",
+      "checkedAt": "2026-08-14"
+    }
   ],
   "relatedActivities": [],
-  "relatedPosts": ["2026-08-yokohama-walking", "2026-08-better-sleep"]
+  "relatedPosts": [
+    "2026-08-yokohama-walking",
+    "2026-08-better-sleep"
+  ],
+  "imageStatus": "unassigned",
+  "imageFilename": "balanced-meal.webp"
 }

@@ -27,7 +27,7 @@ document.querySelectorAll("[data-posts]").forEach((root) => {
   const posts = window.BLOG_POSTS || data.posts;
   root.innerHTML = posts.map((post) => `
     <article class="post-item" data-category="${post.category}">
-      <a class="post-image-link" href="${post.href}" aria-label="${post.title}を読む"><img class="post-image" src="${post.image || "/marugameseiko/assets/images/blog/community-health.svg"}" alt="${post.imageAlt || "横浜の地域健康活動"}" loading="lazy" width="1200" height="675"></a>
+      <a class="post-image-link" href="${post.href}" aria-label="${post.title}を読む">${post.image ? `<img class="post-image" src="${post.image}" alt="${post.imageAlt}" loading="lazy" width="1200" height="675">` : `<span class="post-image blog-image-unassigned" role="img" aria-label="アイキャッチ写真は未設定です"><strong>アイキャッチ写真 未設定</strong><span>写真を確認・準備中です</span></span>`}</a>
       <div><p class="meta"><span>${post.category}</span><time${post.dateISO ? ` datetime="${post.dateISO}"` : ""}>${post.date}</time></p><h3><a href="${post.href}">${post.title}</a></h3><p>${post.summary}</p><a class="read-more" href="${post.href}" aria-label="${post.title}の続きを読む">続きを読む <span aria-hidden="true">→</span></a></div>
     </article>`).join("");
   if (!posts.length) root.innerHTML = '<p class="empty-posts">現在公開中の記事はありません。</p>';
