@@ -7,13 +7,13 @@ document.querySelectorAll("[data-activities]").forEach((root) => {
       <div class="activity-feature-image"><img src="${item.image}" alt="${item.imageAlt}" loading="lazy" width="1600" height="1067"></div>
       <div class="activity-feature-copy">
         <p class="activity-number">${item.number}</p>
-        <h3>${item.title}</h3><p>${item.summary}</p>
+        <h3>${item.title}</h3>${item.subtitle ? `<p class="activity-subtitle">${item.subtitle}</p>` : ""}<p>${item.summary}</p>
         <a class="text-link" href="${item.href}" aria-label="${item.title}を詳しく見る">詳しく見る <span aria-hidden="true">→</span></a>
       </div>
     </article>` : `
     <article class="activity-item">
       <p class="activity-number">${item.number}</p>
-      <h3>${item.title}</h3><p>${item.summary}</p>
+      <h3>${item.title}</h3>${item.subtitle ? `<p class="activity-subtitle">${item.subtitle}</p>` : ""}<p>${item.summary}</p>
       <a class="text-link" href="${item.href}">詳しく見る <span aria-hidden="true">→</span></a>
     </article>`).join("");
 });
