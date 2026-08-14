@@ -59,7 +59,7 @@ window.BLOG_POSTS = [
     "dateISO": "2026-08-10",
     "title": "忙しい日も整えやすい、毎日の食事の組み立て方",
     "summary": "主食・主菜・副菜を手がかりに、無理なく食事のバランスを見直す実践的なヒントを紹介します。",
-    "image": "/marugameseiko/assets/バランスの取れた食事.png",
+    "image": "/marugameseiko/assets/balanced-meal.png",
     "imageAlt": "野菜、主食、たんぱく質をバランスよく盛り付けた日常的な家庭料理",
     "imageStatus": "ready",
     "href": "/marugameseiko/blog/2026-08-balanced-meals.html"
