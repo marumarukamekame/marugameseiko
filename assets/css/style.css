@@ -7,3 +7,7 @@
 
 .activity-feature-copy .activity-subtitle{margin:-10px 0 26px;color:#89938f;font-size:clamp(14px,1.25vw,17px);font-weight:500;letter-spacing:.03em;line-height:1.65}
 @media(max-width:600px){.activity-feature-copy .activity-subtitle{margin:-6px 0 18px;font-size:14px}}
+
+/* Keep the screening subtitle visually secondary to the activity title. */
+.activity-detail-subtitle{margin:-.45em 0 1.1em;color:var(--muted);font-size:clamp(14px,1.35vw,18px);font-weight:500;letter-spacing:.03em}
+@media(max-width:600px){.activity-detail-subtitle{margin:-.25em 0 .9em;font-size:14px}}
