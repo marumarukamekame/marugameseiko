@@ -1,5 +1,10 @@
 const data = window.SITE_DATA || { activities: [], posts: [] };
 
+document.querySelectorAll("[data-blog-categories]").forEach((root) => {
+  const categories = window.BLOG_CATEGORIES || [];
+  root.innerHTML = ['<button data-filter="all" aria-pressed="true">すべて</button>', ...categories.map(({ name }) => `<button data-filter="${name}" aria-pressed="false">${name}</button>`)].join("");
+});
+
 document.querySelectorAll("[data-activities]").forEach((root) => {
   const isFeatureList = root.classList.contains("activity-feature-list");
   root.innerHTML = data.activities.map((item) => isFeatureList ? `
@@ -19,11 +24,13 @@ document.querySelectorAll("[data-activities]").forEach((root) => {
 });
 
 document.querySelectorAll("[data-posts]").forEach((root) => {
-  root.innerHTML = data.posts.map((post, index) => `
+  const posts = window.BLOG_POSTS || data.posts;
+  root.innerHTML = posts.map((post) => `
     <article class="post-item" data-category="${post.category}">
-      <a href="${post.href}" aria-label="${post.title}を読む"><div class="post-image image-${index + 1}" role="img" aria-label="横浜の街と緑の仮画像"></div></a>
-      <div><p class="meta"><span>${post.category}</span><time>${post.date}</time></p><h3><a href="${post.href}">${post.title}</a></h3><p>${post.summary}</p></div>
+      <a class="post-image-link" href="${post.href}" aria-label="${post.title}を読む"><img class="post-image" src="${post.image || "/marugameseiko/assets/images/blog/community-health.svg"}" alt="${post.imageAlt || "横浜の地域健康活動"}" loading="lazy" width="1200" height="675"></a>
+      <div><p class="meta"><span>${post.category}</span><time${post.dateISO ? ` datetime="${post.dateISO}"` : ""}>${post.date}</time></p><h3><a href="${post.href}">${post.title}</a></h3><p>${post.summary}</p><a class="read-more" href="${post.href}" aria-label="${post.title}の続きを読む">続きを読む <span aria-hidden="true">→</span></a></div>
     </article>`).join("");
+  if (!posts.length) root.innerHTML = '<p class="empty-posts">現在公開中の記事はありません。</p>';
 });
 
 const menuButton = document.querySelector(".menu-button");

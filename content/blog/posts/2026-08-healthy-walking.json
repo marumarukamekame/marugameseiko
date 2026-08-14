@@ -1,0 +1,23 @@
+{
+  "slug": "2026-08-healthy-walking",
+  "status": "draft",
+  "title": "横浜で始める毎日のウォーキング習慣",
+  "description": "公開前の編集用下書きです。本文と出典の確認が必要です。",
+  "publishedAt": null,
+  "updatedAt": "2026-08-14",
+  "category": "運動",
+  "image": "/marugameseiko/assets/images/blog/walking-placeholder.svg",
+  "imageAlt": "横浜の公園を歩く人を想定したアイキャッチ画像の準備中表示",
+  "introduction": "【要確認】横浜の身近な場所で無理なく歩く習慣を考える記事の下書きです。",
+  "sections": {
+    "theme": "【管理者が確認して記入】",
+    "background": "【管理者が根拠資料を確認して記入】",
+    "dailyPoints": "【管理者が確認して記入】",
+    "actions": "【管理者が確認して記入】",
+    "cautions": "体調に不安がある場合や治療中の場合は、運動を始める前に医療機関へ相談してください。",
+    "summary": "【管理者が確認して記入】"
+  },
+  "sources": [],
+  "relatedActivities": [],
+  "relatedPosts": []
+}

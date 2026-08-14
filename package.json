@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "preview": "node server.mjs"
+    "preview": "node server.mjs",
+    "blog:build": "node scripts/build-blog.mjs",
+    "blog:validate": "node scripts/build-blog.mjs --check"
   }
 }
