@@ -30,3 +30,20 @@
 @media(max-width:700px){.blog-index .post-list{grid-template-columns:1fr;gap:35px}.blog-index{padding-top:55px}.blog-article{padding-top:25px}.blog-hero-image{margin-top:20px}.blog-category{margin-top:25px}.article-body{padding-top:40px}.article-intro{font-size:17px}.article-dates{display:grid;gap:2px}.article-caution{padding:5px 20px 20px}}
 .blog-image-unassigned{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#edf2ef;color:var(--muted);text-align:center;border:1px dashed #9eada8}.blog-image-unassigned strong{color:var(--ink);font-size:15px}.blog-image-unassigned span{font-size:12px}.blog-hero-image.blog-image-unassigned{height:auto;min-height:clamp(240px,45vw,560px)}
 .blog-photo-frame{position:relative;overflow:hidden;background:#edf2ef}.blog-photo-frame>.blog-image-unassigned{display:none;position:absolute;inset:0;width:100%;height:100%;border:1px dashed #9eada8}.blog-photo-frame.is-missing>img{visibility:hidden}.blog-photo-frame.is-missing>.blog-image-unassigned{display:flex}.blog-hero-image.blog-photo-frame{height:auto}.blog-hero-image.blog-photo-frame>img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}.blog-hero-image.blog-photo-frame>.blog-image-unassigned{min-height:clamp(240px,45vw,560px)}
+
+/* Treatment clinic introduction */
+.clinic-introduction{padding-top:120px;padding-bottom:120px}
+.clinic-introduction-grid{display:grid;grid-template-columns:minmax(360px,.92fr) minmax(0,1.08fr);gap:clamp(56px,8vw,108px);align-items:center}
+.clinic-portrait-placeholder{width:100%;aspect-ratio:4/5;min-height:540px;display:grid;place-items:center;position:relative;overflow:hidden;background:#e9efec;color:#61736e;border:1px solid #d5dfda}
+.clinic-portrait-placeholder::before{content:"";position:absolute;width:42%;aspect-ratio:1;border:1px solid rgba(53,105,92,.16);border-radius:50%;top:20%;left:29%}
+.clinic-portrait-placeholder::after{content:"";position:absolute;width:66%;height:38%;border:1px solid rgba(53,105,92,.16);border-bottom:0;border-radius:50% 50% 0 0;bottom:0;left:17%}
+.clinic-portrait-placeholder span{position:relative;z-index:1;padding:10px 16px;background:rgba(233,239,236,.88);font-size:13px;line-height:1.7;letter-spacing:.08em;text-align:center}
+.clinic-introduction-copy{max-width:600px}
+.clinic-introduction-copy .eyebrow{margin:0 0 18px;color:var(--green)}
+.clinic-introduction-copy h2{margin:0 0 34px;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(30px,3.2vw,44px);font-weight:500;line-height:1.5;letter-spacing:.04em}
+.clinic-introduction-text{color:#405752}
+.clinic-introduction-text p{margin:0 0 1.35em}
+.clinic-introduction-button{margin-top:18px}
+.clinic-details{padding-top:0}
+@media(max-width:900px){.clinic-introduction{padding-top:80px;padding-bottom:85px}.clinic-introduction-grid{grid-template-columns:1fr;gap:45px}.clinic-portrait-placeholder{width:min(100%,560px);min-height:0;margin:auto}.clinic-introduction-copy{max-width:680px;margin:auto}.clinic-details{padding-top:0}}
+@media(max-width:600px){.clinic-introduction{padding-top:60px;padding-bottom:65px}.clinic-introduction-grid{gap:36px}.clinic-introduction-copy h2{margin-bottom:26px;font-size:29px}.clinic-introduction-text{font-size:15px}.clinic-introduction-button{display:block;width:100%;padding-inline:14px;text-align:center}}
