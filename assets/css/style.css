@@ -44,3 +44,14 @@
 .clinic-details{padding-top:0}
 @media(max-width:900px){.clinic-introduction{padding-top:80px;padding-bottom:85px}.clinic-introduction-grid{grid-template-columns:1fr;gap:45px}.clinic-portrait{width:min(100%,560px);min-height:0;margin:auto}.clinic-introduction-copy{max-width:680px;margin:auto}.clinic-details{padding-top:0}}
 @media(max-width:600px){.clinic-introduction{padding-top:60px;padding-bottom:65px}.clinic-introduction-grid{gap:36px}.clinic-introduction-copy h2{margin-bottom:26px;font-size:29px}.clinic-introduction-text{font-size:15px}.clinic-introduction-button{display:block;width:100%;padding-inline:14px;text-align:center}}
+
+/* いざ検診：健康測定へのきっかけ */
+.health-opportunity{margin:0 0 65px;padding:32px clamp(20px,4vw,48px);background:var(--sand);border-top:3px solid var(--green)}
+.health-opportunity h2{margin:0 0 16px;color:var(--green);font-size:18px}
+.health-opportunity h3{max-width:850px;margin:0 0 26px;font-family:serif;font-size:clamp(24px,3vw,34px);font-weight:500;line-height:1.6}
+.health-opportunity-copy{max-width:850px}
+.health-opportunity-copy p{margin:0 0 1.25em}
+.health-opportunity-figure{margin:32px 0 0}
+.health-opportunity-figure img{display:block;width:100%;height:auto;border-radius:8px}
+.health-opportunity-figure figcaption{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.85}
+@media(max-width:600px){.health-opportunity{margin-bottom:45px;padding:25px 18px}.health-opportunity h3{font-size:24px}.health-opportunity-copy{font-size:15px}}
