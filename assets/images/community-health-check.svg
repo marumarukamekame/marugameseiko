@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">地域の集会所で健康測定に参加する住民</title>
+  <desc id="desc">中高年の住民が血圧測定、体重測定、結果用紙の確認を行い、必要に応じて医療機関へ相談できることを示すイラスト</desc>
+  <defs>
+    <style>.line{stroke:#355f58;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#6d8a83;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.label{font-family:'Noto Sans JP','Yu Gothic',sans-serif;fill:#294d47;font-weight:700}.small{font-size:18px}.paper{fill:#fff;stroke:#9bb5ad;stroke-width:4}</style>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="#f6f3ec"/>
+  <path d="M55 555h1090v95H55z" fill="#e1ece7"/>
+  <path d="M75 82h1050v474H75z" fill="#fffdf8" stroke="#d6e3de" stroke-width="6"/>
+  <path d="M75 82h1050v74H75z" fill="#dfeee8"/>
+  <circle cx="110" cy="119" r="9" fill="#d48262"/><circle cx="142" cy="119" r="9" fill="#e5b95f"/><circle cx="174" cy="119" r="9" fill="#6ca28f"/>
+  <text x="600" y="129" text-anchor="middle" class="label" font-size="26">地域の健康測定会</text>
+
+  <!-- Blood-pressure station: the cuff is clearly on the upper arm. -->
+  <ellipse cx="235" cy="288" rx="48" ry="52" fill="#edc6a9"/><path d="M196 278q13-70 78-33 27 15 7 49-9-48-38-34-28 12-47 18z" fill="#677d77"/>
+  <path d="M164 466q10-121 74-121t88 121" fill="#7fae9e" class="line"/>
+  <path d="M231 353q-8 72-2 114" fill="none" class="line"/><path d="M299 356q35 33 52 78" fill="none" class="line"/>
+  <rect x="322" y="367" width="55" height="91" rx="16" fill="#4d7770"/><path d="M376 409q54 5 69 44" fill="none" class="thin"/>
+  <rect x="422" y="436" width="102" height="70" rx="10" fill="#f7faf8" class="line"/><rect x="441" y="451" width="63" height="24" rx="4" fill="#d9eee8"/><path d="M448 487h49" class="thin"/>
+  <path d="M143 477h192m-163 0v80m133-80v80" fill="none" class="line"/><text x="210" y="610" text-anchor="middle" class="label small">上腕式血圧計</text>
+
+  <!-- Weight station. -->
+  <ellipse cx="600" cy="270" rx="45" ry="50" fill="#efcbb2"/><path d="M557 264q8-65 62-42 36 15 24 61-15-37-44-38-25 0-42 19z" fill="#6e7779"/>
+  <path d="M536 438q2-116 65-116t69 116" fill="#e6aa75" class="line"/><path d="M563 436l-14 104m96-104 13 104" fill="none" class="line"/><path d="M530 545h55m46 0h57" class="line"/>
+  <rect x="520" y="548" width="168" height="42" rx="12" fill="#fff" class="line"/><rect x="572" y="557" width="65" height="21" rx="4" fill="#d9eee8"/><text x="604" y="635" text-anchor="middle" class="label small">体重測定</text>
+
+  <!-- Resident and staff reviewing a record together. -->
+  <ellipse cx="806" cy="288" rx="43" ry="49" fill="#e9bea0"/><path d="M765 284q5-61 54-51 34 8 31 54-23-28-42-26-20 1-43 23z" fill="#818b86"/>
+  <path d="M753 459q8-122 56-122 55 0 65 122" fill="#8ba8cb" class="line"/>
+  <ellipse cx="1002" cy="288" rx="43" ry="49" fill="#efc8ac"/><path d="M961 281q10-60 63-45 31 10 22 56-20-34-45-31-20 3-40 20z" fill="#536e68"/>
+  <path d="M943 457q7-119 60-119t65 119" fill="#79a792" class="line"/><path d="M990 350v37m26-37v37" class="thin"/><circle cx="1003" cy="397" r="12" fill="none" class="thin"/>
+  <path d="M835 368q35 29 52 52m92-48-47 48" fill="none" class="line"/>
+  <rect x="845" y="389" width="127" height="144" rx="7" class="paper" transform="rotate(3 909 461)"/><path d="M870 424h77m-77 26h62m-62 26h69" class="thin"/>
+  <text x="902" y="605" text-anchor="middle" class="label small">結果を一緒に確認</text>
+
+  <!-- Lab results are shown separately from the blood-pressure monitor. -->
+  <g transform="translate(724 176) rotate(-3)"><rect width="204" height="102" rx="9" class="paper"/><text x="19" y="36" class="label small">検査結果</text><circle cx="25" cy="61" r="5" fill="#d48262"/><text x="40" y="68" class="label small">血糖値</text><circle cx="25" cy="86" r="5" fill="#e5b95f"/><text x="40" y="93" class="label small">コレステロール値</text></g>
+
+  <!-- Hospital consultation icon. -->
+  <g transform="translate(1011 179)"><circle cx="52" cy="52" r="66" fill="#edf4f1" stroke="#87a99f" stroke-width="4"/><path d="M15 91V40l37-25 37 25v51M35 91V64h34v27" fill="#fff" class="thin"/><path d="M52 31v22m-11-11h22" stroke="#d06f62" stroke-width="8" stroke-linecap="round"/><text x="52" y="137" text-anchor="middle" class="label" font-size="15">医療機関へ相談</text></g>
+  <path d="M110 183h430" stroke="#d6e3de" stroke-width="5" stroke-linecap="round"/><circle cx="110" cy="183" r="10" fill="#d48262"/>
+</svg>
